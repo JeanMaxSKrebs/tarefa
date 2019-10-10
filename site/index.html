@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>teste</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Categoria</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Desconto</th>
+            </tr>
+        </thead>
+        <tbody id="produtos">
+            <button onclick='imprimirJSON()'>json</button>
+        </tbody>
+    </table>
+    <div class="busca">
+        <h1>Busca</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Categoria</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Desconto</th>
+                </tr>
+            </thead>
+            <tbody id="busca_nome">
+                <input id="nome_busca_produto" type="text" name="nome" placeholder="Nome">
+                <button onclick="buscaProdutos_nomeJs()">busca</button>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cadastro">
+        <h1>Cadastro</h1>
+        <form name="insert" id="insertForm" onsubmit="insertProdutosJs()" method="post">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="numeric" name="valor" placeholder="Valor"><br>
+            <input type="text" name="desconto" placeholder="Desconto"> Categoria: Almoço 1<input type="radio" name="categoria" value="1" checked> Lanche 2<input type="radio" name="categoria" value="2"><br><br>
+            <input type="submit" name="cadastro_produto" value="Cadastro Produto">
+        </form>
+    </div>
+
+    <div class="altera">
+        <h1>Alterar</h1>
+        <form name="alter" onsubmit="alterProdutosJs()" method="post">
+            <input type="text" name="busca" placeholder="Qual produto quer editar?">
+            <input type="submit" name="altera_produto" value="Busca Produto Altera">
+        </form>
+        <br>
+        <form name="att" id="attForm" onsubmit="attProdutosJs()" method="post">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="numeric" name="valor" placeholder="Valor"> <br>
+            <input type="text" name="desconto" placeholder="Desconto"> Categoria: Almoço 1<input type="radio" name="categoria" value="1" checked> Lanche 2<input type="radio" name="categoria" value="2"><br><br>
+            <input type="submit" name="att_produto" value="Att Produto">
+        </form>
+    </div>
+
+    <div class="deleta">
+        <h1>Deletar</h1>
+        <form name="deletar" id="deleteForm" onsubmit="deleteProdutosJs()" method="post">
+            <input type="text" name="busca" placeholder="Qual produto quer deletar?">
+            <input type="submit" name="deleta_produto" value="Busca Produto Delete">
+        </form>
+    </div>
+    <p id="resultado"></p>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="functions.js"></script>
+</body>
+
+</html>
